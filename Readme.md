@@ -69,7 +69,7 @@ df['CohortGroup']=df.groupby(['sid_id'])[date_column].transform(min)
 
 
 
-After this, we have to groupby CohortGroup and InvoceDate column, and get the number of unique customer IDs. We can apply pd.Grouper function which is very useful for grouping by specific date period. Here, we
+After this, we have to groupby CohortGroup and InvoceDate column, and get the number of unique customer IDs. We can apply pd.Grouper function which is very useful for grouping by specific date period. 
 
 ```python
 df_grouped=df.groupby([pd.Grouper(key='CohortGroup',freq=freq, closed='left', label='left'),pd.Grouper(key=date_column,freq=freq, closed='left', label='left')])
@@ -238,7 +238,7 @@ def cohort(input_df, date_column, id_column, start_date='1970-01-01', freq='MS',
 def sns_cohort_plot(pivoted_df, normalize=False):            
     plt.figure(figsize=(10,10))        
     plt.title('Cohort retention')    
-    fmt_type =  '.0%' if normalze else '.0f'    
+    fmt_type =  '.0%' if normalize else '.0f'    
     sns.heatmap(pivoted_df, mask=pivoted_df.isnull(), annot=True, fmt='0.0f')
     plt.yticks(rotation='horizontal')
     display(pivoted_df)
