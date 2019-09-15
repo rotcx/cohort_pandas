@@ -1,5 +1,8 @@
+%matplotlib inline
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def cohort(input_df, date_column, id_column, start_date='1970-01-01', freq='MS', normalize=False):
     def cohort_period(df):
