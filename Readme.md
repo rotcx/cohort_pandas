@@ -180,16 +180,12 @@ def sns_cohort_plot(pivoted_df, normalize=False):
 ```
 
 ```python
-sns_cohort(final)
+sns_cohort(final,True)
 ```
 
 
 
-
-
-
-
-![1568553165190](Cohort%20Chart%20with%20pandas.assets/1568553165190.png)
+![1568556784746](Readme.assets/1568556784746.png)
 
 
 
@@ -239,7 +235,7 @@ def sns_cohort_plot(pivoted_df, normalize=False):
     plt.figure(figsize=(10,10))        
     plt.title('Cohort retention')    
     fmt_type =  '.0%' if normalize else '.0f'    
-    sns.heatmap(pivoted_df, mask=pivoted_df.isnull(), annot=True, fmt='0.0f')
+    sns.heatmap(pivoted_df, mask=pivoted_df.isnull(), annot=True, fmt=fmt_type)
     plt.yticks(rotation='horizontal')
     display(pivoted_df)
 ```
